@@ -79,6 +79,9 @@ function decode(s) {
 }
 const clean = s => decode(decode(s || '').replace(/<[^>]+>/g, ' ')).replace(/\s+/g, ' ').trim();
 
+// 원문 링크가 없을 때: 관광공사·문화포털 상세 주소는 형식이 바뀌어 오류가 나므로 네이버 검색으로 대신
+const naverSearch = title => `https://m.search.naver.com/search.naver?query=${encodeURIComponent(clean(title))}`;
+
 // ---------- 지역 ----------
 const REGIONS = [
   ['seoul', '서울', /^서울/], ['busan', '부산', /^부산/], ['daegu', '대구', /^대구/],
@@ -215,7 +218,7 @@ async function collectCulture(cache) {
       price: priceOf(d.price), priceText: clean(d.price),
       img: d.imgUrl || x.thumbnail || '', imgs: [],
       intro: clean(d.contents1).slice(0, 400), cast: '', time: '', age: '', runtime: '',
-      url: d.url || `https://www.culture.go.kr/oneeye/oneEyeView.do?seq=${x.seq}`,
+      url: d.url || naverSearch(x.title),
       tel: clean(d.phone), lat: +x.gpsY || null, lng: +x.gpsX || null,
     };
   }).filter(Boolean);
@@ -267,7 +270,7 @@ async function collectTour(cache) {
       img: x.firstimage || '', imgs: [],
       intro: clean(c.overview).slice(0, 400), cast: '', time: clean(i.playtime).slice(0, 80),
       age: clean(i.agelimit), runtime: '',
-      url: home || `https://korean.visitkorea.or.kr/detail/fes_detail.do?cotid=${x.contentid}`,
+      url: home || naverSearch(x.title),
       tel: clean(x.tel), lat: +x.mapy || null, lng: +x.mapx || null,
     };
   }).filter(Boolean);
