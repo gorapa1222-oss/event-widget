@@ -354,9 +354,13 @@ function fillIntro(e) {
   const srcNames = ['KOPIS', '문화포털', '관광공사'];
   const all = parts.flatMap((p, i) => p && p.length ? p : prev.filter(e => e.src === srcNames[i] && e.end >= TODAY));
 
+  // 권리자 요청 제외 목록 (blocklist.json)
+  const block = readJson(path.join(ROOT, 'blocklist.json'), { ids: [], noImage: [] });
+  const blockIds = new Set(block.ids || []), noImage = new Set(block.noImage || []);
   const NOT_EVENT = /모집|서포터즈|공모전|채용|지원사업|확산사업|역량강화사업|수강생|교육생/;
   for (const e of all) for (const f of ['title', 'place', 'addr', 'cast', 'time', 'intro', 'priceText', 'tel', 'age', 'url', 'img']) if (e[f]) e[f] = clean(e[f]);
-  let events = merge(all).filter(e => e.end >= TODAY && e.start <= UNTIL && !NOT_EVENT.test(e.title));
+  let events = merge(all).filter(e => e.end >= TODAY && e.start <= UNTIL && !NOT_EVENT.test(e.title) && !blockIds.has(e.id));
+  for (const e of events) if (noImage.has(e.id)) { e.img = ''; e.imgs = []; }
   for (const e of events) {
     e.title = stripRegionTag(e.title) || e.title;
     // '전남광주통합특별시 예술의전당 (구. 광주예술의전당)' → '광주 예술의전당'
