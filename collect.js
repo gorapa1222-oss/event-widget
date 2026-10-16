@@ -141,7 +141,9 @@ async function collectKopis(cache) {
   console.log('KOPIS 목록', list.length);
   let calls = 0;
   const need = list.filter(x => !fresh(cache.kopis[x.mt20id])).slice(0, BUDGET.kopis);
-  await pool(need, 6, async x => {
+  // KOPIS 는 초당 10회를 넘기면 서비스가 중지된다 → 동시 2개 + 250ms 간격 (초당 약 6회)
+  await pool(need, 2, async x => {
+    await sleep(250);
     const xml = await get(`http://www.kopis.or.kr/openApi/restful/pblprfr/${x.mt20id}?service=${KOPIS_KEY}`); calls++;
     const d = xml && xmlItems(xml, 'db')[0];
     if (d) cache.kopis[x.mt20id] = { at: Date.now(), d };
@@ -149,7 +151,8 @@ async function collectKopis(cache) {
   // 통합특별시 공연장은 주소를 봐야 광주/전남을 가른다
   const fac = [...new Set(list.filter(x => /^전남광주/.test(x.area)).map(x => cache.kopis[x.mt20id]?.d?.mt10id).filter(Boolean))]
     .filter(id => !cache.place[id]);
-  await pool(fac, 4, async id => {
+  await pool(fac, 2, async id => {
+    await sleep(250);
     const xml = await get(`http://www.kopis.or.kr/openApi/restful/prfplc/${id}?service=${KOPIS_KEY}`); calls++;
     const d = xml && xmlItems(xml, 'db')[0];
     if (d) cache.place[id] = { adres: d.adres, la: d.la, lo: d.lo };
