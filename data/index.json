@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-18 12:33",
+ "updated": "2026-10-18 15:38",
  "today": "20261018",
  "regions": [
   {
@@ -25,7 +25,7 @@
   {
    "code": "gwangju",
    "name": "광주",
-   "count": 79
+   "count": 78
   },
   {
    "code": "daejeon",
@@ -45,7 +45,7 @@
   {
    "code": "gyeonggi",
    "name": "경기",
-   "count": 448
+   "count": 447
   },
   {
    "code": "gangwon",
