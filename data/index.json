@@ -1,41 +1,41 @@
 {
- "updated": "2026-10-19 12:36",
+ "updated": "2026-10-19 15:48",
  "today": "20261019",
  "regions": [
   {
    "code": "seoul",
    "name": "서울",
-   "count": 1267
+   "count": 1310
   },
   {
    "code": "busan",
    "name": "부산",
-   "count": 180
+   "count": 186
   },
   {
    "code": "daegu",
    "name": "대구",
-   "count": 136
+   "count": 140
   },
   {
    "code": "incheon",
    "name": "인천",
-   "count": 100
+   "count": 101
   },
   {
    "code": "gwangju",
    "name": "광주",
-   "count": 71
+   "count": 72
   },
   {
    "code": "daejeon",
    "name": "대전",
-   "count": 85
+   "count": 93
   },
   {
    "code": "ulsan",
    "name": "울산",
-   "count": 46
+   "count": 47
   },
   {
    "code": "sejong",
@@ -45,7 +45,7 @@
   {
    "code": "gyeonggi",
    "name": "경기",
-   "count": 413
+   "count": 417
   },
   {
    "code": "gangwon",
@@ -60,27 +60,27 @@
   {
    "code": "chungnam",
    "name": "충남",
-   "count": 58
+   "count": 59
   },
   {
    "code": "jeonbuk",
    "name": "전북",
-   "count": 73
+   "count": 74
   },
   {
    "code": "jeonnam",
    "name": "전남",
-   "count": 70
+   "count": 74
   },
   {
    "code": "gyeongbuk",
    "name": "경북",
-   "count": 92
+   "count": 93
   },
   {
    "code": "gyeongnam",
    "name": "경남",
-   "count": 126
+   "count": 129
   },
   {
    "code": "jeju",
