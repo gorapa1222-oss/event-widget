@@ -1,11 +1,11 @@
 {
- "updated": "2026-10-25 03:34",
+ "updated": "2026-10-25 06:32",
  "today": "20261025",
  "regions": [
   {
    "code": "seoul",
    "name": "서울",
-   "count": 1381
+   "count": 1379
   },
   {
    "code": "busan",
@@ -50,7 +50,7 @@
   {
    "code": "gangwon",
    "name": "강원",
-   "count": 81
+   "count": 80
   },
   {
    "code": "chungbuk",
