@@ -1,11 +1,11 @@
 {
- "updated": "2026-10-25 18:34",
+ "updated": "2026-10-25 21:38",
  "today": "20261025",
  "regions": [
   {
    "code": "seoul",
    "name": "서울",
-   "count": 1381
+   "count": 1380
   },
   {
    "code": "busan",
