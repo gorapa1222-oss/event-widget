@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-30 03:52",
+ "updated": "2026-10-30 06:44",
  "today": "20261030",
  "regions": [
   {
@@ -55,12 +55,12 @@
   {
    "code": "chungbuk",
    "name": "충북",
-   "count": 43
+   "count": 44
   },
   {
    "code": "chungnam",
    "name": "충남",
-   "count": 67
+   "count": 69
   },
   {
    "code": "jeonbuk",
@@ -70,7 +70,7 @@
   {
    "code": "jeonnam",
    "name": "전남",
-   "count": 69
+   "count": 68
   },
   {
    "code": "gyeongbuk",
