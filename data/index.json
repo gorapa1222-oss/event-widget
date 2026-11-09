@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-10 03:57",
+ "updated": "2026-11-10 06:52",
  "today": "20261110",
  "regions": [
   {
@@ -65,12 +65,12 @@
   {
    "code": "jeonbuk",
    "name": "전북",
-   "count": 76
+   "count": 77
   },
   {
    "code": "jeonnam",
    "name": "전남",
-   "count": 49
+   "count": 50
   },
   {
    "code": "gyeongbuk",
